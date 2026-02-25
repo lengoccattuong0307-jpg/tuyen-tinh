@@ -1,0 +1,206 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\title{\textbf{BÀI GIẢNG: VÉC TƠ VÀ KIỂM TRA ĐỘC LẬP TUYẾN TÍNH}}
+\date{}
+\begin{document}
+\maketitle
+
+\section{Khái niệm Véc tơ}
+
+Một véc tơ trong $\mathbb{R}^n$ là một bộ có thứ tự:
+\[
+\vec{v} = (v_1,v_2,...,v_n)
+\]
+
+\subsection*{Biểu diễn hình học trong $\mathbb{R}^2$}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\draw[->] (-1,0) -- (4,0) node[right] {$x$};
+\draw[->] (0,-1) -- (0,4) node[above] {$y$};
+\draw[->,thick,blue] (0,0)--(3,2) node[right] {$\vec{v}$};
+\end{tikzpicture}
+\end{center}
+
+\section{Độc lập tuyến tính}
+
+Hệ véc tơ $\{\vec{v_1},\vec{v_2},...,\vec{v_k}\}$ độc lập tuyến tính nếu:
+\[
+a_1\vec{v_1}+a_2\vec{v_2}+...+a_k\vec{v_k}=0
+\Rightarrow a_1=a_2=...=a_k=0
+\]
+
+Ngược lại là phụ thuộc tuyến tính.
+
+\newpage
+\section{CÁCH 1: So sánh số véc tơ và số chiều}
+
+Trong không gian $\mathbb{R}^n$:
+\[
+k>n \Rightarrow \text{Phụ thuộc tuyến tính}
+\]
+
+\subsection*{Ví dụ 1}
+Trong $\mathbb{R}^2$ có 3 véc tơ:
+\[
+v_1=(1,0),\;
+v_2=(0,1),\;
+v_3=(2,3)
+\]
+\[
+3>2 \Rightarrow \text{Phụ thuộc tuyến tính}
+\]
+
+\subsection*{Ví dụ 2}
+Trong $\mathbb{R}^3$ có:
+\[
+v_1=(1,0,0),\;
+v_2=(0,1,0)
+\]
+\[
+2<3 \Rightarrow \text{Có thể độc lập}
+\]
+
+\subsection*{Ví dụ 3}
+Trong $\mathbb{R}^3$ có 4 véc tơ:
+\[
+v_1,v_2,v_3,v_4
+\]
+\[
+4>3 \Rightarrow \text{Phụ thuộc tuyến tính}
+\]
+
+\newpage
+\section{CÁCH 2: Phép khử Gauss}
+
+Xét:
+\[
+v_1=(1,2,3),\;
+v_2=(2,4,6),\;
+v_3=(1,1,1)
+\]
+
+Lập ma trận:
+\[
+A=
+\begin{bmatrix}
+1&2&1\\
+2&4&1\\
+3&6&1
+\end{bmatrix}
+\]
+
+Khử Gauss:
+\[
+R_2-2R_1 \to R_2
+\]
+\[
+R_3-3R_1 \to R_3
+\]
+
+\[
+\Rightarrow
+\begin{bmatrix}
+1&2&1\\
+0&0&-1\\
+0&0&-2
+\end{bmatrix}
+\]
+
+\[
+\Rightarrow \text{Phụ thuộc tuyến tính}
+\]
+
+\subsection*{Ví dụ 2}
+\[
+v_1=(1,0,0),\;
+v_2=(0,1,0),\;
+v_3=(0,0,1)
+\]
+
+\[
+A=I_3 \Rightarrow \text{Độc lập}
+\]
+
+\subsection*{Ví dụ 3}
+\[
+v_1=(1,1),\;
+v_2=(2,2)
+\]
+
+\[
+A=
+\begin{bmatrix}
+1&2\\
+1&2
+\end{bmatrix}
+\Rightarrow
+\text{Phụ thuộc}
+\]
+
+\newpage
+\section{CÁCH 3: Sử dụng định thức}
+
+Nếu:
+\[
+\det(A)\neq0
+\Rightarrow \text{Độc lập tuyến tính}
+\]
+
+\subsection*{Ví dụ 1}
+\[
+A=
+\begin{bmatrix}
+1&0\\
+0&1
+\end{bmatrix}
+\]
+\[
+\det(A)=1\neq0
+\Rightarrow \text{Độc lập}
+\]
+
+\subsection*{Ví dụ 2}
+\[
+A=
+\begin{bmatrix}
+1&2\\
+2&4
+\end{bmatrix}
+\]
+\[
+\det(A)=0
+\Rightarrow \text{Phụ thuộc}
+\]
+
+\subsection*{Ví dụ 3}
+\[
+A=
+\begin{bmatrix}
+1&2&3\\
+0&1&4\\
+5&6&0
+\end{bmatrix}
+\]
+
+\[
+\det(A)=1(0-24)-2(0-20)+3(0-5)
+\]
+\[
+=-24+40-15=1\neq0
+\]
+
+\[
+\Rightarrow \text{Độc lập}
+\]
+
+\end{document}
